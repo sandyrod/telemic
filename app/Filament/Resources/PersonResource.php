@@ -25,7 +25,7 @@ class PersonResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('codigo')
+                Forms\Components\TextInput::make('code')
                     ->label('Codigo')
                     ->required()
                     ->maxLength(255),
