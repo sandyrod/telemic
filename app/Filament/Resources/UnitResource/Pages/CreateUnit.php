@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateUnit extends CreateRecord
 {
     protected static string $resource = UnitResource::class;
+
+    protected function getCreatedNotificationRedirectUrl(): ?string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

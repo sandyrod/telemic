@@ -16,4 +16,9 @@ class EditBrand extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function getSavedNotificationRedirectUrl(): ?string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

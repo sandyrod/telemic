@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Brand extends Model
+class VehicleModel extends Model
 {
-    protected $fillable = ['code','description'];
+    protected $table = 'models';
+    protected $fillable = [
+        'modelo',
+        'description',
+    ];
 
     public function vehicles()
     {

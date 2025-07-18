@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\BrandResource\Pages;
+namespace App\Filament\Resources\VehicleResource\Pages;
 
-use App\Filament\Resources\BrandResource;
+use App\Filament\Resources\VehicleResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateBrand extends CreateRecord
+class CreateVehicle extends CreateRecord
 {
-    protected static string $resource = BrandResource::class;
+    protected static string $resource = VehicleResource::class;
 
     protected function getCreatedNotificationRedirectUrl(): ?string
     {

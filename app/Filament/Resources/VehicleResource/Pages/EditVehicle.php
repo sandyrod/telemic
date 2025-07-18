@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\UnitResource\Pages;
+namespace App\Filament\Resources\VehicleResource\Pages;
 
-use App\Filament\Resources\UnitResource;
+use App\Filament\Resources\VehicleResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditUnit extends EditRecord
+class EditVehicle extends EditRecord
 {
-    protected static string $resource = UnitResource::class;
+    protected static string $resource = VehicleResource::class;
 
     protected function getHeaderActions(): array
     {
