@@ -51,7 +51,10 @@ class ClaimAttentionResource extends Resource
                         ->label('Subnodo')
                         ->maxLength(255),
                         
+                    // Campos que solo se muestran cuando el tipo de reclamo NO es Fibrahogar
                     Forms\Components\Group::make()
+                        ->id('network-fields-group')
+                        ->extraAttributes(['class' => 'network-fields'])
                         ->schema([
                             Forms\Components\Select::make('descarga_materiales')
                                 ->label('Descarga Materiales')
@@ -60,27 +63,37 @@ class ClaimAttentionResource extends Resource
                                     'no' => 'No',
                                 ])
                                 ->nullable()
-                                ->visible(fn (Forms\Get $get): bool => $get('tipo_reclamo') !== 'Fibrahogar')
-                                ->dehydrated(fn ($state) => filled($state)),
+                                ->visible(fn (callable $get) => $get('tipo_reclamo') !== 'Fibrahogar')
+                                ->dehydrated(true),
                                 
                             Forms\Components\TextInput::make('nap')
                                 ->label('NAP')
                                 ->maxLength(255)
-                                ->visible(fn (Forms\Get $get): bool => $get('tipo_reclamo') !== 'Fibrahogar')
-                                ->dehydrated(fn ($state) => filled($state)),
+                                ->visible(fn (callable $get) => $get('tipo_reclamo') !== 'Fibrahogar')
+                                ->dehydrated(true),
                                 
                             Forms\Components\TextInput::make('puerto')
                                 ->label('Puerto')
                                 ->maxLength(255)
-                                ->visible(fn (Forms\Get $get): bool => $get('tipo_reclamo') !== 'Fibrahogar')
-                                ->dehydrated(fn ($state) => filled($state)),
+                                ->visible(fn (callable $get) => $get('tipo_reclamo') !== 'Fibrahogar')
+                                ->dehydrated(true),
                                 
                             Forms\Components\TextInput::make('feeder')
                                 ->label('Feeder')
                                 ->maxLength(255)
-                                ->visible(fn (Forms\Get $get): bool => $get('tipo_reclamo') !== 'Fibrahogar')
-                                ->dehydrated(fn ($state) => filled($state)),
-                        ]),
+                                ->visible(fn (callable $get) => $get('tipo_reclamo') !== 'Fibrahogar')
+                                ->dehydrated(true),
+                        ])
+                        ->live()
+                        ->afterStateUpdated(function (callable $get, callable $set) {
+                            // Limpiar los campos cuando se ocultan
+                            if ($get('tipo_reclamo') === 'Fibrahogar') {
+                                $set('descarga_materiales', null);
+                                $set('nap', null);
+                                $set('puerto', null);
+                                $set('feeder', null);
+                            }
+                        }),
                 ])->columns(2),
                 
             Forms\Components\Section::make('Detalles de la Atención')

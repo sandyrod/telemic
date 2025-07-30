@@ -106,6 +106,24 @@ class ReportResource extends Resource
     {
         return [
             'index' => Pages\ListReports::route('/'),
+            'claim-attentions' => Pages\ClaimAttentionsReport::route('/claim-attentions'),
         ];
+    }
+    
+    public static function getNavigationItems(array $urlParameters = []): array
+    {
+        // This resource is now just a container for the pages
+        return [];
+    }
+    
+    public static function getNavigationLabel(): string
+    {
+        return 'Reportes';
+    }
+    
+    public static function shouldRegisterNavigation(): bool
+    {
+        // Hide this resource from navigation since we're using separate resources
+        return false;
     }
 }
