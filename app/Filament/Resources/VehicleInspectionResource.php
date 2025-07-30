@@ -18,6 +18,8 @@ class VehicleInspectionResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
     protected static ?string $modelLabel = 'Inspección de Vehículo';
     protected static ?string $pluralModelLabel = 'Inspecciones de Vehículo';
+    protected static ?string $navigationGroup = 'Vehículos';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

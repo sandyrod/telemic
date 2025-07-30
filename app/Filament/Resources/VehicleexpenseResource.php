@@ -16,9 +16,11 @@ class VehicleexpenseResource extends Resource
 {
     protected static ?string $model = vehicleexpense::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $modelLabel = 'Gasto de Vehículo'; // Singular
-    protected static ?string $pluralModelLabel = 'Gastos de Vehículo'; // Plural
+    protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
+    protected static ?string $modelLabel = 'Gasto de Vehículo';
+    protected static ?string $pluralModelLabel = 'Gastos de Vehículos';
+    protected static ?string $navigationGroup = 'Vehículos';
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {

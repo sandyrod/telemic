@@ -15,9 +15,11 @@ class VehicleSystemResource extends Resource
 {
     protected static ?string $model = VehicleSystem::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $modelLabel = 'Sistema de Vehículo'; // Singular
-    protected static ?string $pluralModelLabel = 'Sistemas de Vehículo'; // Plural
+    protected static ?string $navigationIcon = 'heroicon-o-cog';
+    protected static ?string $modelLabel = 'Sistema de Vehículo';
+    protected static ?string $pluralModelLabel = 'Sistemas de Vehículo';
+    protected static ?string $navigationGroup = 'Vehículos';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {

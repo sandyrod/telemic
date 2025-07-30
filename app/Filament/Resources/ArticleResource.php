@@ -18,8 +18,9 @@ class ArticleResource extends Resource
     protected static ?string $model = Article::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $modelLabel = 'Articulo'; // Singular
-    protected static ?string $pluralModelLabel = 'Articulos'; // Plural
+    protected static ?string $modelLabel = 'Articulo';
+    protected static ?string $pluralModelLabel = 'Articulos';
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {
